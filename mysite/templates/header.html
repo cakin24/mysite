@@ -1,3 +1,4 @@
+<!--模板中声明引入静态文件的标签，只有使用它,static标签才能使用-->
 {% load staticfiles %}
 <div class="container">
     <nav class="navbar navbar-default" role="navigation">
@@ -6,6 +7,7 @@
 	    </div>
 	    <div>
             <ul class="nav navbar-nav" role="navigation">
+                <!--blog是urlpatterns中定义的namespace，blog_title是视图函数-->
                 <li><a href="{% url 'blog:blog_title' %}">记录我的点点滴滴</a></li>
             </ul>
 	    </div>
