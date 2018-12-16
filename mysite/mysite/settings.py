@@ -55,8 +55,10 @@ ROOT_URLCONF = 'mysite.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
+        # 定义模板文件的位置，模板文件位于根目录的templates目录下
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        # 不再允许Django按照默认方式寻找模板文件
+        'APP_DIRS': False,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -118,4 +120,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+
 STATIC_URL = '/static/'
+# 静态文件目录在根目录的static下
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
