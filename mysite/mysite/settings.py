@@ -125,3 +125,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # 静态文件目录在根目录的static下
 STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
+# 登录后重定向到http://localhost:8000/blog/页面
+LOGIN_REDIRECT_URL = '/blog/'

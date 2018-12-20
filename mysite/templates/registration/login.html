@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}登录{% endblock %}
+{% block content %}
+<div class="row text-center vertical-middle-sm">
+	<h1>登录</h1>
+	<p>请输入用户名和密码</p>
+    <!--用具体的URL指明了数据的POST目标-->
+	<form class="form-horizontal" action="{% url 'account:user_login' %}" method="post">
+		{% csrf_token %}
+        <!--每个表单元素在一对P标签内-->
+        <!--{{ form.as_p }}-->
+        <!--使用Bootstrap样式使得表单更美丽-->
+        <div class="form-group">
+			<label for="{{ form.username.id_for_label }}" class="col-md-5 control-label" style="color:red"><span class="glyphicon glyphicon-user"></span>Username</label>
+			<div class="col-md-6 text-left">{{ form.username }}</div>
+		</div>
+		<div class="form-group">
+			<label for="{{ form.password.id_for_label }}" class="col-md-5 control-label" style="color:blue"><span class="glyphicon glyphicon-floppy-open"></span>Password</label>
+			<div class="col-md-6 text-left">{{ form.password }}</div>
+		</div>
+		<input type="submit" value="Login">
+	</form>
+</div>
+{% endblock %}
